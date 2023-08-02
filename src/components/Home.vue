@@ -66,12 +66,24 @@
     </div>
 
     <!-- Content -->
-    <div class="flex-1 p-10 text-2xl">Content here</div>
+    <div class="flex-1 p-10 text-2xl">
+      <p>Content here</p>
+      <br>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="store.commit('increment')">
+        Button
+      </button>
+      <p class="text-xl">{{store.state.count}}</p>
+    </div>
+  
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { key }  from '../store';
+
+const store = useStore(key);
 
 const isTranslate_menu = ref(true);
 
