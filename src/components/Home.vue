@@ -72,18 +72,21 @@
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="store.commit('increment')">
         Button
       </button>
-      <p class="text-xl">{{store.state.count}}</p>
+      <p class="text-xl">{{ incrementCount }}</p>
+      <p class="text-md">{{ userInfo }}</p>
     </div>
   
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 import { key }  from '../store';
 
 const store = useStore(key);
+const incrementCount = computed(() => store.state.count);
+const userInfo = computed(() => store.getters.getUserInfo );
 
 const isTranslate_menu = ref(true);
 
