@@ -66,27 +66,31 @@
     </div>
 
     <!-- Content -->
-    <div class="flex-1 p-10 text-2xl">
-      <p>Content here</p>
-      <br>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="store.commit('increment')">
-        Button
+    <div class="flex-1 p-10">
+      <h1 class="text-4xl">Test Vuex</h1>
+      <br />
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        @click="store.commit('countModule/increment')"
+      >
+        Add count
       </button>
       <p class="text-xl">{{ incrementCount }}</p>
+      <h2 class="text-2xl py-3">User Info</h2>
       <p class="text-md">{{ userInfo }}</p>
+      <p>{{ greeting }}</p>
     </div>
-  
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useStore } from 'vuex';
-import { key }  from '../store';
+import { useStore } from '../store/store';
 
-const store = useStore(key);
-const incrementCount = computed(() => store.state.count);
-const userInfo = computed(() => store.getters.getUserInfo );
+const store = useStore();
+const incrementCount = computed(() => store.state.countModule.count);
+const userInfo = computed(() => store.getters['userModule/getUserInfo']);
+const greeting = computed(() => store.state.greeting);
 
 const isTranslate_menu = ref(true);
 
