@@ -56,11 +56,10 @@
           class="block py-2 5 px-4 rounded hover:bg-blue-700 hover:text-white transition duration-200"
           >About</router-link
         >
-        <a href="#" class="block py-2 5 px-4 rounded hover:bg-blue-700 hover:text-white transition duration-200"
-          >Features</a
-        >
-        <a href="#" class="block py-2 5 px-4 rounded hover:bg-blue-700 hover:text-white transition duration-200"
-          >Blog</a
+        <router-link
+          :to="{ name: 'testComponent' }"
+          class="block py-2 5 px-4 rounded hover:bg-blue-700 hover:text-white transition duration-200"
+          >Test Component</router-link
         >
       </nav>
     </div>
